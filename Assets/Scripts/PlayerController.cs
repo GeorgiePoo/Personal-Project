@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 13.0f;
+    private float speed = 5.0f;
     private Rigidbody playerRb;
 
     private float zBound = 4;
     private float xBound = 11;
+
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,11 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         ConstrictPlayerPosition();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
     }
       
 
